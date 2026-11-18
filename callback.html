@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Clip Poster · Login</title>
+<style>body{font:16px/1.6 system-ui,sans-serif;max-width:720px;margin:40px auto;padding:0 16px;color:#222;background:#fff}code{display:block;padding:12px;background:#f2f2f2;word-break:break-all;border-radius:6px}</style>
+</head><body>
+<h1>TikTok login</h1>
+<p id="msg">Reading login result…</p>
+<code id="code"></code>
+<script>
+  const p = new URLSearchParams(location.search);
+  const msg = document.getElementById("msg"), box = document.getElementById("code");
+  if (p.get("code")) { msg.textContent = "Logged in. Copy this whole line back into Clip Poster:"; box.textContent = location.href; }
+  else { msg.textContent = "Login failed: " + (p.get("error_description") || p.get("error") || "no code returned"); box.remove(); }
+</script>
+</body></html>
